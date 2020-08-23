@@ -1,0 +1,33 @@
+.details-wrapper {
+  padding-bottom: 5px; }
+
+.details-title h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #000; }
+  .details-title h1 .tooltip-target {
+    border-bottom: 1px dotted;
+    cursor: pointer; }
+
+.details-title.full-width .badge {
+  margin: -44px 0 22px 0; }
+
+.details-title.full-width .details-adtype {
+  top: 0; }
+
+.details-adtype {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #4a4a4a;
+  top: -5px;
+  position: relative; }
+  .details-adtype .adtype-col {
+    display: flex;
+    flex-wrap: wrap; }
+    .details-adtype .adtype-col > * {
+      flex-shrink: 0; }
+    .details-adtype .adtype-col .adtype-value {
+      margin-right: 20px; }
+
+
+/*# sourceMappingURL=stock-title-assets-b0c68f6b59cf1f17eae9.css.map*/

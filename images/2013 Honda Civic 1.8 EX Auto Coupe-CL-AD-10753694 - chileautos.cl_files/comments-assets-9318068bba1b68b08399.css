@@ -1,0 +1,708 @@
+.tooltip {
+  z-index: 9999999999; }
+  .tooltip.show {
+    opacity: 1; }
+  .tooltip .tooltip-inner {
+    max-width: 300px;
+    padding: 20px 30px;
+    text-align: left;
+    background: #f2f2f2;
+    color: #4a4a4a;
+    border: 1px solid #bfbfbf; }
+  .tooltip .arrow {
+    width: 15px;
+    height: 10px; }
+    .tooltip .arrow::after {
+      position: absolute;
+      content: "";
+      border-color: transparent;
+      border-style: solid; }
+
+.bs-tooltip-top, .bs-tooltip-auto[x-placement^="top"] {
+  padding: 10px 0; }
+  .bs-tooltip-top .arrow, .bs-tooltip-auto[x-placement^="top"] .arrow {
+    bottom: 0; }
+    .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+      top: 0;
+      border-width: 10px 7.5px 0;
+      border-top-color: #bfbfbf; }
+    .bs-tooltip-top .arrow::after, .bs-tooltip-auto[x-placement^="top"] .arrow::after {
+      top: -1px;
+      border-width: 10px 7.5px 0;
+      border-top-color: #f2f2f2; }
+
+.bs-tooltip-right, .bs-tooltip-auto[x-placement^="right"] {
+  padding: 0 10px; }
+  .bs-tooltip-right .arrow, .bs-tooltip-auto[x-placement^="right"] .arrow {
+    left: 0;
+    width: 10px;
+    height: 15px; }
+    .bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+      right: 0;
+      border-width: 7.5px 10px 7.5px 0;
+      border-right-color: #bfbfbf; }
+    .bs-tooltip-right .arrow::after, .bs-tooltip-auto[x-placement^="right"] .arrow::after {
+      right: -1px;
+      border-width: 7.5px 10px 7.5px 0;
+      border-right-color: #f2f2f2; }
+
+.bs-tooltip-bottom, .bs-tooltip-auto[x-placement^="bottom"] {
+  padding: 10px 0; }
+  .bs-tooltip-bottom .arrow, .bs-tooltip-auto[x-placement^="bottom"] .arrow {
+    top: 0; }
+    .bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+      bottom: 0;
+      border-width: 0 7.5px 10px;
+      border-bottom-color: #bfbfbf; }
+    .bs-tooltip-bottom .arrow::after, .bs-tooltip-auto[x-placement^="bottom"] .arrow::after {
+      bottom: -1px;
+      border-width: 0 7.5px 10px;
+      border-bottom-color: #f2f2f2; }
+
+.bs-tooltip-left, .bs-tooltip-auto[x-placement^="left"] {
+  padding: 0 10px; }
+  .bs-tooltip-left .arrow, .bs-tooltip-auto[x-placement^="left"] .arrow {
+    right: 0;
+    width: 10px;
+    height: 15px; }
+    .bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+      left: 0;
+      border-width: 7.5px 0 7.5px 10px;
+      border-left-color: #bfbfbf; }
+    .bs-tooltip-left .arrow::after, .bs-tooltip-auto[x-placement^="left"] .arrow::after {
+      left: -1px;
+      border-width: 7.5px 0 7.5px 10px;
+      border-left-color: #f2f2f2; }
+
+html,
+body {
+  font-family: "Open Sans";
+  color: #6e6e6e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.btn,
+.btn:not([href]):not([tabindex]) {
+  margin: 10px 0;
+  padding: 7px 20px;
+  border-radius: 18px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.1s ease;
+  display: inline-block; }
+  .btn:active, .btn:focus, .btn:active:focus,
+  .btn:not([href]):not([tabindex]):active,
+  .btn:not([href]):not([tabindex]):focus,
+  .btn:not([href]):not([tabindex]):active:focus {
+    box-shadow: none !important; }
+  .btn:hover,
+  .btn:not([href]):not([tabindex]):hover {
+    text-decoration: none; }
+  .btn.btn-primary,
+  .btn:not([href]):not([tabindex]).btn-primary {
+    color: #fff;
+    border: 1px solid #007CC2;
+    background: #007CC2; }
+    .btn.btn-primary:hover,
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      border-color: #0069b9;
+      background: #0069b9; }
+    .btn.btn-primary.btn-outline,
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      background: #fff;
+      color: #007CC2; }
+      .btn.btn-primary.btn-outline:hover,
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #a9e0ff; }
+  .btn.btn-secondary,
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    background: none;
+    border: solid 1px #007CC2;
+    color: #007CC2; }
+    .btn.btn-secondary:hover,
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #007CC2;
+      background: rgba(0, 124, 194, 0.05); }
+    .btn.btn-secondary.btn-outline,
+    .btn:not([href]):not([tabindex]).btn-secondary.btn-outline {
+      background: #fff;
+      color: #FF7B00; }
+      .btn.btn-secondary.btn-outline:hover,
+      .btn:not([href]):not([tabindex]).btn-secondary.btn-outline:hover {
+        background: #fff2e6; }
+  .btn.loading,
+  .btn:not([href]):not([tabindex]).loading {
+    color: transparent !important;
+    position: relative; }
+    .btn.loading:after,
+    .btn:not([href]):not([tabindex]).loading:after {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      margin-left: -8px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      border-left-color: rgba(0, 0, 0, 0);
+      animation: spinner 0.8s linear infinite; }
+  .carsales .btn.btn-primary, .carsales
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #007CC2;
+    background: #007CC2;
+    color: #fff; }
+    .carsales .btn.btn-primary:hover, .carsales
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #00448D;
+      background: #00448D; }
+    .carsales .btn.btn-primary.btn-outline, .carsales
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #007CC2;
+      background: #fff; }
+      .carsales .btn.btn-primary.btn-outline:hover, .carsales
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #a9e0ff; }
+  .carsales .btn.btn-secondary, .carsales
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #007CC2;
+    color: #007CC2; }
+    .carsales .btn.btn-secondary:hover, .carsales
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #007CC2;
+      background: rgba(0, 124, 194, 0.05); }
+    .carsales .btn.btn-secondary.loading:after, .carsales
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #007CC2;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .bikesales .btn.btn-primary, .bikesales
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #ED1C24;
+    background: #ED1C24;
+    color: #fff; }
+    .bikesales .btn.btn-primary:hover, .bikesales
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #A50D12;
+      background: #A50D12; }
+    .bikesales .btn.btn-primary.btn-outline, .bikesales
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #ED1C24;
+      background: #fff; }
+      .bikesales .btn.btn-primary.btn-outline:hover, .bikesales
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #fef1f1; }
+  .bikesales .btn.btn-secondary, .bikesales
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #ED1C24;
+    color: #ED1C24; }
+    .bikesales .btn.btn-secondary:hover, .bikesales
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #ED1C24;
+      background: rgba(237, 28, 36, 0.05); }
+    .bikesales .btn.btn-secondary.loading:after, .bikesales
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #ED1C24;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .boatsales .btn.btn-primary, .boatsales
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #EB9F26;
+    background: #EB9F26;
+    color: #fff; }
+    .boatsales .btn.btn-primary:hover, .boatsales
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #E58F19;
+      background: #E58F19; }
+    .boatsales .btn.btn-primary.btn-outline, .boatsales
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #EB9F26;
+      background: #fff; }
+      .boatsales .btn.btn-primary.btn-outline:hover, .boatsales
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #fefcf8; }
+  .boatsales .btn.btn-secondary, .boatsales
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #EB9F26;
+    color: #EB9F26; }
+    .boatsales .btn.btn-secondary:hover, .boatsales
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #EB9F26;
+      background: rgba(235, 159, 38, 0.05); }
+    .boatsales .btn.btn-secondary.loading:after, .boatsales
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #EB9F26;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .caravancampingsales .btn.btn-primary, .caravancampingsales
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #4F7034;
+    background: #4F7034;
+    color: #fff; }
+    .caravancampingsales .btn.btn-primary:hover, .caravancampingsales
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #4F7034;
+      background: #4F7034; }
+    .caravancampingsales .btn.btn-primary.btn-outline, .caravancampingsales
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #4F7034;
+      background: #fff; }
+      .caravancampingsales .btn.btn-primary.btn-outline:hover, .caravancampingsales
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #c3daaf; }
+  .caravancampingsales .btn.btn-secondary, .caravancampingsales
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #4F7034;
+    color: #4F7034; }
+    .caravancampingsales .btn.btn-secondary:hover, .caravancampingsales
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #4F7034;
+      background: rgba(79, 112, 52, 0.05); }
+    .caravancampingsales .btn.btn-secondary.loading:after, .caravancampingsales
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #4F7034;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .trucksales .btn.btn-primary, .trucksales
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #005289;
+    background: #005289;
+    color: #fff; }
+    .trucksales .btn.btn-primary:hover, .trucksales
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #005289;
+      background: #005289; }
+    .trucksales .btn.btn-primary.btn-outline, .trucksales
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #005289;
+      background: #fff; }
+      .trucksales .btn.btn-primary.btn-outline:hover, .trucksales
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #70c5ff; }
+  .trucksales .btn.btn-secondary, .trucksales
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #005289;
+    color: #005289; }
+    .trucksales .btn.btn-secondary:hover, .trucksales
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #005289;
+      background: rgba(0, 82, 137, 0.05); }
+    .trucksales .btn.btn-secondary.loading:after, .trucksales
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #005289;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .farmmachinerysales .btn.btn-primary, .farmmachinerysales
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #4da32f;
+    background: #4da32f;
+    color: #fff; }
+    .farmmachinerysales .btn.btn-primary:hover, .farmmachinerysales
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #266E44;
+      background: #266E44; }
+    .farmmachinerysales .btn.btn-primary.btn-outline, .farmmachinerysales
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #4da32f;
+      background: #fff; }
+      .farmmachinerysales .btn.btn-primary.btn-outline:hover, .farmmachinerysales
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #d2efc8; }
+  .farmmachinerysales .btn.btn-secondary, .farmmachinerysales
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #4da32f;
+    color: #4da32f; }
+    .farmmachinerysales .btn.btn-secondary:hover, .farmmachinerysales
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #4da32f;
+      background: rgba(77, 163, 47, 0.05); }
+    .farmmachinerysales .btn.btn-secondary.loading:after, .farmmachinerysales
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #4da32f;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .constructionsales .btn.btn-primary, .constructionsales
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #FF8B22;
+    background: #FF8B22;
+    color: #fff; }
+    .constructionsales .btn.btn-primary:hover, .constructionsales
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #FF631C;
+      background: #FF631C; }
+    .constructionsales .btn.btn-primary.btn-outline, .constructionsales
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #FF8B22;
+      background: #fff; }
+      .constructionsales .btn.btn-primary.btn-outline:hover, .constructionsales
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: white; }
+  .constructionsales .btn.btn-secondary, .constructionsales
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #FF8B22;
+    color: #FF8B22; }
+    .constructionsales .btn.btn-secondary:hover, .constructionsales
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #FF8B22;
+      background: rgba(255, 139, 34, 0.05); }
+    .constructionsales .btn.btn-secondary.loading:after, .constructionsales
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #FF8B22;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .redbookcars .btn.btn-primary, .redbookcars
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #ED1C24;
+    background: #ED1C24;
+    color: #fff; }
+    .redbookcars .btn.btn-primary:hover, .redbookcars
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #A50D12;
+      background: #A50D12; }
+    .redbookcars .btn.btn-primary.btn-outline, .redbookcars
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #ED1C24;
+      background: #fff; }
+      .redbookcars .btn.btn-primary.btn-outline:hover, .redbookcars
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #fef1f1; }
+  .redbookcars .btn.btn-secondary, .redbookcars
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #ED1C24;
+    color: #ED1C24; }
+    .redbookcars .btn.btn-secondary:hover, .redbookcars
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #ED1C24;
+      background: rgba(237, 28, 36, 0.05); }
+    .redbookcars .btn.btn-secondary.loading:after, .redbookcars
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #ED1C24;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .soloautos .btn.btn-primary, .soloautos
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #007CC2;
+    background: #007CC2;
+    color: #fff; }
+    .soloautos .btn.btn-primary:hover, .soloautos
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #00448D;
+      background: #00448D; }
+    .soloautos .btn.btn-primary.btn-outline, .soloautos
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #007CC2;
+      background: #fff; }
+      .soloautos .btn.btn-primary.btn-outline:hover, .soloautos
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #a9e0ff; }
+  .soloautos .btn.btn-secondary, .soloautos
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #007CC2;
+    color: #007CC2; }
+    .soloautos .btn.btn-secondary:hover, .soloautos
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #007CC2;
+      background: rgba(0, 124, 194, 0.05); }
+    .soloautos .btn.btn-secondary.loading:after, .soloautos
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #007CC2;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .chileautos .btn.btn-primary, .chileautos
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #007CC2;
+    background: #007CC2;
+    color: #fff; }
+    .chileautos .btn.btn-primary:hover, .chileautos
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #00448D;
+      background: #00448D; }
+    .chileautos .btn.btn-primary.btn-outline, .chileautos
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #007CC2;
+      background: #fff; }
+      .chileautos .btn.btn-primary.btn-outline:hover, .chileautos
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #a9e0ff; }
+  .chileautos .btn.btn-secondary, .chileautos
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #007CC2;
+    color: #007CC2; }
+    .chileautos .btn.btn-secondary:hover, .chileautos
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #007CC2;
+      background: rgba(0, 124, 194, 0.05); }
+    .chileautos .btn.btn-secondary.loading:after, .chileautos
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #007CC2;
+      border-left-color: rgba(0, 0, 0, 0); }
+  .demotores .btn.btn-primary, .demotores
+  .btn:not([href]):not([tabindex]).btn-primary {
+    border: 1px solid #007CC2;
+    background: #007CC2;
+    color: #fff; }
+    .demotores .btn.btn-primary:hover, .demotores
+    .btn:not([href]):not([tabindex]).btn-primary:hover {
+      color: #fff;
+      border-color: #00448D;
+      background: #00448D; }
+    .demotores .btn.btn-primary.btn-outline, .demotores
+    .btn:not([href]):not([tabindex]).btn-primary.btn-outline {
+      color: #007CC2;
+      background: #fff; }
+      .demotores .btn.btn-primary.btn-outline:hover, .demotores
+      .btn:not([href]):not([tabindex]).btn-primary.btn-outline:hover {
+        background: #a9e0ff; }
+  .demotores .btn.btn-secondary, .demotores
+  .btn:not([href]):not([tabindex]).btn-secondary {
+    border-color: #007CC2;
+    color: #007CC2; }
+    .demotores .btn.btn-secondary:hover, .demotores
+    .btn:not([href]):not([tabindex]).btn-secondary:hover {
+      color: #007CC2;
+      background: rgba(0, 124, 194, 0.05); }
+    .demotores .btn.btn-secondary.loading:after, .demotores
+    .btn:not([href]):not([tabindex]).btn-secondary.loading:after {
+      border: 2px solid #007CC2;
+      border-left-color: rgba(0, 0, 0, 0); }
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg); } }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #4a4a4a;
+  line-height: 1.3; }
+  h1.section-title,
+  h2.section-title,
+  h3.section-title,
+  h4.section-title,
+  h5.section-title,
+  h6.section-title {
+    font-weight: 400;
+    color: #000;
+    font-size: 21px; }
+
+.fixed {
+  overflow: hidden; }
+
+hr {
+  border-top: 1px solid #ddd; }
+
+a {
+  color: #00448D;
+  cursor: pointer; }
+  a:not([href]):not([tabindex]) {
+    color: #00448D; }
+    a:not([href]):not([tabindex]):hover {
+      text-decoration: underline;
+      color: #00448D; }
+  .carsales a {
+    color: #00448D; }
+    .carsales a:not([href]):not([tabindex]) {
+      color: #00448D; }
+      .carsales a:not([href]):not([tabindex]):hover {
+        color: #003874; }
+  .bikesales a {
+    color: #A50D12; }
+    .bikesales a:not([href]):not([tabindex]) {
+      color: #A50D12; }
+      .bikesales a:not([href]):not([tabindex]):hover {
+        color: #8d0b0f; }
+  .boatsales a {
+    color: #E58F19; }
+    .boatsales a:not([href]):not([tabindex]) {
+      color: #E58F19; }
+      .boatsales a:not([href]):not([tabindex]):hover {
+        color: #ce8116; }
+  .caravancampingsales a {
+    color: #4F7034; }
+    .caravancampingsales a:not([href]):not([tabindex]) {
+      color: #4F7034; }
+      .caravancampingsales a:not([href]):not([tabindex]):hover {
+        color: #435f2c; }
+  .trucksales a {
+    color: #005289; }
+    .trucksales a:not([href]):not([tabindex]) {
+      color: #005289; }
+      .trucksales a:not([href]):not([tabindex]):hover {
+        color: #004370; }
+  .farmmachinerysales a {
+    color: #266E44; }
+    .farmmachinerysales a:not([href]):not([tabindex]) {
+      color: #266E44; }
+      .farmmachinerysales a:not([href]):not([tabindex]):hover {
+        color: #1f5b38; }
+  .constructionsales a {
+    color: #FF631C; }
+    .constructionsales a:not([href]):not([tabindex]) {
+      color: #FF631C; }
+      .constructionsales a:not([href]):not([tabindex]):hover {
+        color: #ff5103; }
+  .redbookcars a {
+    color: #A50D12; }
+    .redbookcars a:not([href]):not([tabindex]) {
+      color: #A50D12; }
+      .redbookcars a:not([href]):not([tabindex]):hover {
+        color: #8d0b0f; }
+  .soloautos a {
+    color: #00448D; }
+    .soloautos a:not([href]):not([tabindex]) {
+      color: #00448D; }
+      .soloautos a:not([href]):not([tabindex]):hover {
+        color: #003874; }
+  .chileautos a {
+    color: #00448D; }
+    .chileautos a:not([href]):not([tabindex]) {
+      color: #00448D; }
+      .chileautos a:not([href]):not([tabindex]):hover {
+        color: #003874; }
+  .demotores a {
+    color: #00448D; }
+    .demotores a:not([href]):not([tabindex]) {
+      color: #00448D; }
+      .demotores a:not([href]):not([tabindex]):hover {
+        color: #003874; }
+
+.peace-of-mind-content .carousel-control {
+  display: none; }
+
+@media (max-width: 1024px) {
+  .peace-of-mind-content .carousel-control {
+    display: inherit; }
+    .peace-of-mind-content .carousel-control.carousel-control-next {
+      right: -35px; }
+    .peace-of-mind-content .carousel-control.carousel-control-prev {
+      left: -40px; }
+  .container {
+    width: 100% !important;
+    max-width: none !important; }
+  .partner-tools .card-footer p {
+    height: auto !important; }
+  .reviews-container .card {
+    max-width: none;
+    flex-basis: auto;
+    margin-bottom: 10px;
+    margin-right: 0;
+    width: 50%; }
+    .reviews-container .card:first-child {
+      margin-right: 20px; }
+    .reviews-container .card:nth-child(3) {
+      display: none; }
+  .share-tools-wrapper, .owner-reviews-driver {
+    flex-direction: column; }
+  .partner-tools-items {
+    flex-wrap: wrap; }
+    .partner-tools-items .card {
+      max-width: none;
+      flex-basis: 45%;
+      margin-bottom: 10px;
+      margin-right: 0;
+      width: 45%; }
+      .partner-tools-items .card:first-child {
+        margin-right: 10px; }
+  .key-details-item {
+    width: 50%; }
+  .gallery .thumb-wrapper-hero {
+    margin-right: 0; }
+  .gallery-thumbnails {
+    display: none; } }
+
+.section-separator > div {
+  padding-top: 50px;
+  margin-top: 20px;
+  border-top: 1px solid #ddd; }
+  .section-separator > div:empty {
+    padding: 0;
+    margin: 0;
+    border: none; }
+
+.comments-wrapper {
+  padding: 30px 0; }
+
+.comments .view-more-container {
+  font-size: 14px; }
+  .comments .view-more-container .view-more-target {
+    max-height: 230px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-bottom: 10px; }
+  .comments .view-more-container .view-more-target p {
+    word-break: break-word;
+    white-space: pre-wrap;
+    line-height: 2.1; }
+  .comments .view-more-container .view-more {
+    font-size: 14px;
+    color: #007CC2;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: right top 2px;
+    padding-right: 20px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA3Q0MyIiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+    .comments .view-more-container .view-more:hover {
+      color: #007CC2; }
+  .comments .view-more-container.visible .view-more-target {
+    max-height: none;
+    overflow-y: auto; }
+  .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA3Q0MyIiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .carsales .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA0NDhEIiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .carsales .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA0NDhEIiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .bikesales .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjQTUwRDEyIiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .bikesales .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjQTUwRDEyIiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .boatsales .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjRTU4RjE5IiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .boatsales .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjRTU4RjE5IiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .caravancampingsales .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjNEY3MDM0IiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .caravancampingsales .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjNEY3MDM0IiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .trucksales .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA1Mjg5IiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .trucksales .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA1Mjg5IiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .farmmachinerysales .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMjY2RTQ0IiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .farmmachinerysales .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMjY2RTQ0IiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .constructionsales .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjRkY2MzFDIiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .constructionsales .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjRkY2MzFDIiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .redbookcars .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjQTUwRDEyIiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .redbookcars .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjQTUwRDEyIiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .soloautos .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA0NDhEIiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .soloautos .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA0NDhEIiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .chileautos .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA0NDhEIiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .chileautos .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA0NDhEIiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+  .demotores .comments .view-more-container .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA0NDhEIiBkPSJNMTE5LjUgMzI2LjlMMy41IDIwOS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsNy4xLTcuMWM0LjctNC43IDEyLjMtNC43IDE3IDBMMTI4IDI4Ny4zbDEwMC40LTEwMi4yYzQuNy00LjcgMTIuMy00LjcgMTcgMGw3LjEgNy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wxMzYuNSAzMjdjLTQuNyA0LjYtMTIuMyA0LjYtMTctLjF6Ij48L3BhdGg+PC9zdmc+"); }
+  .demotores .comments .view-more-container.visible .view-more {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSIjMDA0NDhEIiBkPSJNMTM2LjUgMTg1LjFsMTE2IDExNy44YzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtNy4xIDcuMWMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEyOCAyMjQuNyAyNy42IDMyNi45Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTcuMS03LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wxMTYtMTE3LjhjNC43LTQuNiAxMi4zLTQuNiAxNyAuMXoiPjwvcGF0aD48L3N2Zz4="); }
+
+
+/*# sourceMappingURL=comments-assets-9318068bba1b68b08399.css.map*/

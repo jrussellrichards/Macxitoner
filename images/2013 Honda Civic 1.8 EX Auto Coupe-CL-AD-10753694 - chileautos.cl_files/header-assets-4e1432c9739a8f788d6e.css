@@ -1,0 +1,36 @@
+.header {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .header-logo {
+    display: block;
+    height: 45px;
+    width: 275px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain; }
+  .header .banner-ad {
+    width: 728px;
+    height: 90px; }
+  .header.tenant-carsales .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/carsales.svg); }
+  .header.tenant-boatsales .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/boatsales.svg); }
+  .header.tenant-bikesales .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/bikesales.svg); }
+  .header.tenant-trucksales .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/trucksales.svg); }
+  .header.tenant-farmmachinerysales .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/farmmachinerysales.svg); }
+  .header.tenant-caravancampingsales .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/caravancampingsales.svg); }
+  .header.tenant-constructionsales .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/constructionsales.svg); }
+  .header.tenant-soloautos .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/soloautos.svg); }
+  .header.tenant-demotores .header-logo {
+    background-image: url(https://resource.csnstatic.com/retail/globals/logo/v3/demotores.svg); }
+
+
+/*# sourceMappingURL=header-assets-4e1432c9739a8f788d6e.css.map*/

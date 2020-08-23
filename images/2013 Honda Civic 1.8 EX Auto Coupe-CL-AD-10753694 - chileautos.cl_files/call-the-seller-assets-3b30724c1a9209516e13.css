@@ -1,0 +1,21 @@
+.seller-info.call-private-seller .contact-content {
+  padding: 0 0 10px; }
+
+.seller-info.call-private-seller .phone-number {
+  font-size: 22px;
+  font-weight: 600;
+  color: #262626;
+  line-height: 1em; }
+  .seller-info.call-private-seller .phone-number i.icon {
+    font-size: 13px; }
+
+.seller-info.call-private-seller .privacy-protect-disclaimer .privacy-protect-icon {
+  background: url("https://resource.csnstatic.com/retail/cmp-retail-enquiry/images/icon-privacy-protect.png") no-repeat;
+  background-size: 75%;
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin: 5px 5px 5px 0; }
+
+
+/*# sourceMappingURL=call-the-seller-assets-3b30724c1a9209516e13.css.map*/
